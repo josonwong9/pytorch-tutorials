@@ -109,14 +109,14 @@ validation_set = torchvision.datasets.FashionMNIST('./data',
 training_loader = torch.utils.data.DataLoader(training_set,
                                               batch_size=4,
                                               shuffle=True,
-                                              num_workers=2)
+                                              num_workers=0)
 
 
 # 验证集通常不需要打乱，因为它只用于评估平均损失，不影响模型学习。
 validation_loader = torch.utils.data.DataLoader(validation_set,
                                                 batch_size=4,
                                                 shuffle=False,
-                                                num_workers=2)
+                                                num_workers=0)
 
 # Class labels
 # Fashion-MNIST 的标签是 0 到 9 的整数，这里把整数映射成人类可读的类别名。

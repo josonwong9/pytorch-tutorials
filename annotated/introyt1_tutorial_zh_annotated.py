@@ -209,7 +209,7 @@ trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
 # 用 DataLoader 包装 Dataset；它负责按 batch 取数据、打乱顺序和并行加载。
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
                                           # batch_size=4 表示每次取 4 张图；shuffle=True 表示每轮训练前打乱顺序。
-                                          shuffle=True, num_workers=2)
+                                          shuffle=True, num_workers=0)
 
 # 导入 matplotlib 的绘图接口，用于显示图片。
 import matplotlib.pyplot as plt
@@ -276,7 +276,7 @@ trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
 # 创建训练 DataLoader；每次给模型 4 张图，并在每个 epoch 打乱顺序。
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
                                           # num_workers=2 表示使用 2 个子进程加载数据。
-                                          shuffle=True, num_workers=2)
+                                          shuffle=True, num_workers=0)
 
 # 创建 CIFAR-10 测试集；train=False 表示读取 10000 张测试图片。
 testset = torchvision.datasets.CIFAR10(root='./data', train=False,
@@ -285,7 +285,7 @@ testset = torchvision.datasets.CIFAR10(root='./data', train=False,
 # 创建测试 DataLoader；测试时通常不需要打乱顺序，所以 shuffle=False。
 testloader = torch.utils.data.DataLoader(testset, batch_size=4,
                                          # 测试集同样按每批 4 张图读取。
-                                         shuffle=False, num_workers=2)
+                                         shuffle=False, num_workers=0)
 
 # 再次定义 CIFAR-10 的类别名称，后面打印标签时使用。
 classes = ('plane', 'car', 'bird', 'cat',
